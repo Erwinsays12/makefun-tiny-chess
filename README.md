@@ -1,6 +1,6 @@
 # Tiny tapered alpha-beta engine (4 KB)
 
-A complete chess engine in a single `main.py` of **4,087 bytes** (cap: 4,096).
+A complete chess engine in a single `main.py` of **4,093 bytes** (cap: 4,096).
 The file holds an lzma-compressed, base85-encoded payload of the readable
 engine source (~7.2 KB) plus a one-line unpacker that `exec`s it. Python
 standard library only; no network except the game-environment protocol the
