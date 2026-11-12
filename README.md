@@ -1,8 +1,8 @@
 # Tiny tapered alpha-beta engine (4 KB)
 
-A complete chess engine in a single `main.py` of **4,088 bytes** (cap: 4,096).
+A complete chess engine in a single `main.py` of **4,096 bytes** (cap: 4,096).
 The file holds an lzma-compressed, base85-encoded payload of the readable
-engine source (~7.4 KB) plus a two-line unpacker that `exec`s it. Python
+engine source (~7.3 KB) plus a one-line unpacker that `exec`s it. Python
 standard library only; no network except the game-environment protocol the
 harness defines.
 
@@ -17,10 +17,10 @@ harness defines.
   en-passant, unified stepper/slider ray loop, castling with transit checks);
   legality is enforced by testing the own king after each make.
 - **Search**: negamax alpha-beta with PVS, a transposition table (depth,
-  score, best move), quiescence search over captures and promotions with
-  full check evasions when in check, check extensions, MVV-LVA and
-  transposition-move ordering, and strict draw handling (repetition against
-  the game history, halfmove clock) inside the search.
+  score, bound flag, best move), quiescence search over captures and
+  promotions with full check evasions when in check, check extensions,
+  null-move pruning, MVV-LVA and transposition-move ordering, and draw
+  handling by repetition against the game history inside the search.
 - **Evaluation**: tapered material plus formula piece-square terms —
   pawn advancement by rank and file, knight/bishop centrality, rook on the
   seventh rank, and a king that hides in the middlegame and centralises in
